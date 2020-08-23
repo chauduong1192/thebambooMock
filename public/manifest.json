@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "BamBooMock: Mock API calls seamlessly",
+  "description": "Adds the API mocker BamBooMock to Dev Tools for seamless integration & testing.",
+  "version": "0.0.1",
+  "devtools_page": "devtool.html",
+  "icons": {
+    "16": "16x16.png",
+    "48": "48x48.png",
+    "128": "128x128.png",
+    "512": "512x512.png"
+  },
+  "browser_action": {
+    "default_icon": "16x16.png",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content_script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": ["js/inject.js"],
+  "permissions": ["storage", "<all_urls>"]
+}

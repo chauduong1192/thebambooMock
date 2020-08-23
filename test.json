@@ -1,0 +1,19 @@
+{
+   "active":false,
+   "collections":{
+
+   },
+   "id":3,
+   "mocks":[
+      {
+         "active":true,
+         "createdOn":1597809119266,
+         "delay":500,
+         "id":2,
+         "method":"POST",
+         "response":"{\"result\":\"SUCCESS\"}",
+         "status":200,
+         "url":"https://ibauthprox.tymedigital.net/ib/logout"
+      }
+   ]
+}

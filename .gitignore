@@ -1,0 +1,11 @@
+.vscode
+.idea
+.DS_STORE
+node_modules
+.module-cache
+*.log*
+build
+dist
+ionic
+mobile_build
+dist.pem
