@@ -1,5 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
+import {
+  Text
+} from 'rebass';
+import media from "styled-media-query";
 
 import Tabs from "../components/tabs";
 import Tooltip from "../components/tooltip";
@@ -48,6 +52,10 @@ const Input = styled.input`
   outline: none;
   margin: 0 6px;
   padding: 0 8px;
+
+  ${media.lessThan("small")`
+    width: 200px;
+  `}
 `;
 
 const RecordIcon = styled(Icon) <{ border: boolean }>`
@@ -205,8 +213,9 @@ const Header = (props: IProps) => {
         background="primary"
         onClick={() => props.addMock()}
       >
-        <Icon>add</Icon> Create Mock
-        </ButtonWrrap>
+        <Icon>add</Icon>
+        <Text color='white !important'>Create Mock</Text>
+      </ButtonWrrap>
       <BreakLine />
       <ButtonDisable
         isDisable={false}
@@ -214,7 +223,8 @@ const Header = (props: IProps) => {
         icon
         onClick={() => props.disableMocking()}
       >
-        <Icon>lock</Icon> Disable
+        <Icon>lock</Icon>
+        <Text>Disable</Text>
       </ButtonDisable>
     </Wrapper>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 import { ThemeType } from "../../theme";
 
 export const Cell = styled.td<{ width?: number }>`
@@ -87,4 +88,13 @@ export const Button = styled.button<{
   ${({ background, theme }) =>
     background && `background: ${theme.colors[background]};`};
   ${({ color, theme }) => color && `color: ${theme.colors[color]};`};
+
+  ${media.lessThan("medium")`
+    & div {
+      display: none;
+    }
+    & i {
+      margin-right: 0;
+    }
+  `}
 `;

@@ -1,5 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
+import media from "styled-media-query";
+import { Text } from 'rebass';
 import { Icon } from "../table";
 
 interface IProps {
@@ -16,10 +18,14 @@ const Wrapper = styled("div")`
 `;
 
 const TabIcon = styled(Icon)`
-  margin-right: 8px;
+  ${media.lessThan("medium")`
+    & div {
+      display: none;
+    }
+  `}
 `;
 
-const TabWrapper = styled("div")<{ active?: boolean }>`
+const TabWrapper = styled("div") <{ active?: boolean }>`
   padding: 4px 8px;
   display: flex;
   align-items: center;
@@ -49,7 +55,7 @@ const Tabs = ({ selected, tabs, tabWidth, className, onChange }: IProps) => (
         onClick={() => onChange(index)}
       >
         <TabIcon color="primary">{tab === 'Mocks' ? 'api' : 'loyalty'}</TabIcon>
-        {tab}
+        <Text ml={['0', '4px']} display={['none', 'block']}>{tab}</Text>
       </TabWrapper>
     ))}
   </Wrapper>
