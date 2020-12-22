@@ -6,6 +6,9 @@ import { Button, Icon } from "../components/table";
 import Tooltip from "../components/tooltip";
 import Detail from "./detail";
 import {
+  Text
+} from 'rebass';
+import {
   Table,
   Cell,
   HeaderCell,
@@ -160,13 +163,15 @@ const Logs = (props: IProps) => {
                       <Button
                         icon
                         transparent
+                        background="primary"
                         link
                         onClick={(event) => {
                           event.stopPropagation();
                           props.editMock(log.mockPath);
                         }}
                       >
-                        Edit
+                        <Icon color="white">check_circle_outline</Icon>
+                        <Text color='white !important'>Mocked</Text>
                       </Button>
                     )}
                     {!log.mockPath && log.response && (

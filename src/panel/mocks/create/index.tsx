@@ -157,7 +157,7 @@ const Create = (props: IProps) => {
             <Textarea
               error={!!errors.response}
               value={values.response}
-              rows={6}
+              rows={10}
               name="response"
               onChange={handleChange}
               onBlur={handleBlur}
@@ -193,12 +193,12 @@ const Create = (props: IProps) => {
       <Formik
         validateOnBlur
         initialValues={{
-          method: componentProps.mock?.method || "GET",
-          url: componentProps.mock?.url || "",
-          status: componentProps.mock?.status || 200,
-          delay: componentProps.mock?.delay || 500,
-          response: componentProps.mock?.response || "",
-          active: componentProps.mock?.active || true,
+          method: componentProps.mock.method,
+          url: componentProps.mock.url,
+          status: componentProps.mock.status,
+          delay: componentProps.mock.delay,
+          response: componentProps.mock.response,
+          active: componentProps.mock.active,
         }}
         validate={validate}
         onSubmit={handleSubmit}
@@ -208,5 +208,16 @@ const Create = (props: IProps) => {
     </Wrapper>
   );
 };
+
+Create.defaultProps = {
+  mock: {
+    active: true,
+    method: 'GET',
+    url: 'https://',
+    status: 200,
+    delay: 500,
+    response: "{}",
+  }
+}
 
 export default Create;

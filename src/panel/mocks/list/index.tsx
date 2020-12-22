@@ -80,6 +80,7 @@ const List = (props: IProps) => {
       </EmptyWrapper>
     );
   }
+
   return (
     <Wrapper>
       <TableHeadWrapper>
