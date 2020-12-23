@@ -190,17 +190,18 @@ class App extends React.Component<IProps, IState> {
           (mock) => mock.url === newMock.url && mock.method === newMock.method
         );
         
-        if (!!sameMock) {
-          if (!bulk) {
-            this.showNotification("Mock already exist");
-            return;
-          }
-          return store;
-        }
+        // if (!!sameMock) {
+        //   if (!bulk) {
+        //     this.showNotification("Mock already exist");
+        //     return;
+        //   }
+        //   return store;
+        // }
         const id = store.id;
 
         store.mocks = [...store.mocks, { ...newMock, id }];
         store.id++;
+        
         break;
       }
 
@@ -399,6 +400,7 @@ class App extends React.Component<IProps, IState> {
 
   filterStore = (oldStore: IStore, search) => {
     const store = { ...oldStore };
+    console.log('store', store);
     store.mocks = store.mocks.filter((item) => item.url.includes(search));
     Object.keys(store.collections).forEach((collection) => {
       store[collection].mocks = store[collection].mocks.filter((item) =>
@@ -593,6 +595,8 @@ class App extends React.Component<IProps, IState> {
 
     const filteredStore =
       !search || route === "logs" ? store : this.filterStore(store, search);
+
+      console.log('filteredStore', filteredStore);
 
     return (
       <Wrapper>
